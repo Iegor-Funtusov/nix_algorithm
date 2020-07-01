@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Сложность алгоритмов</title>
+</head>
+<body>
+<div layout:fragment="content">
+
+    <div class="card mb-2 mt-2">
+        <div class="card-header">
+            Асимптотический анализ (Временная сложность алгоритма)
+        </div>
+        <div class="card-body">
+            <div class="card-text">
+                Когда мы говорим об измерении сложности алгоритмов, мы подразумеваем анализ времени, которое потребуется для обработки очень большого набора данных. Такой анализ называют асимптотическим. Сколько времени потребуется на обработку массива из десяти элементов? Тысячи? Десяти миллионов? Если алгоритм обрабатывает тысячу элементов за пять миллисекунд, что случится, если мы передадим в него миллион? Будет ли он выполняться пять минут или пять лет?
+            </div>
+            <hr>
+            <div class="card-text">
+                Порядок роста
+                <br>
+                <br>
+                Порядок роста описывает то, как сложность алгоритма растет с увеличением размера входных данных. Чаще всего он представлен в виде O-нотации (от нем. «Ordnung» — порядок) : O(f(x)), где f(x) — формула, выражающая сложность алгоритма. В формуле может присутствовать переменная n, представляющая размер входных данных. Ниже приводится список наиболее часто встречающихся порядков роста, но он ни в коем случае не полный.
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-2 mt-2">
+        <div class="card-header">
+            Виды
+        </div>
+        <div class="card-body">
+            <table class="table table-sm">
+                <thead>
+                <tr>
+                    <th scope="col">Тип</th>
+                    <th scope="col">Описание</th>
+                    <th scope="col">Пример</th>
+                    <th scope="col"></th>
+                    <th scope="col">Результат</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">Константный — O(1)</th>
+                    <td>
+                        Порядок роста O(1) означает, что вычислительная сложность алгоритма не зависит от размера входных данных. Следует помнить, однако, что единица в формуле не значит, что алгоритм выполняется за одну операцию или требует очень мало времени. Он может потребовать и микросекунду, и год. Важно то, что это время не зависит от входных данных.
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="from ..." id="inputOrderConstant" th:value="10">
+                        </div>
+                    </td>
+                    <td>
+                        <button class="btn btn-secondary" type="button" onclick="orderConstant()">
+                            run
+                        </button>
+                    </td>
+                    <td id="resultOrderConstant"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Линейный — O(n)</th>
+                    <td>
+                        Порядок роста O(n) означает, что сложность алгоритма линейно растет с увеличением входного массива. Если линейный алгоритм обрабатывает один элемент пять миллисекунд, то мы можем ожидать, что тысячу элементов он обработает за пять секунд.
+                        Такие алгоритмы легко узнать по наличию цикла по каждому элементу входного массива.                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="from ..." id="inputOrderLinear" th:value="10">
+                        </div>
+                    </td>
+                    <td>
+                        <button class="btn btn-secondary" type="button" onclick="orderLinear()">
+                            run
+                        </button>
+                    </td>
+                    <td id="resultOrderLinear"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Логарифмический – O( log n)</th>
+                    <td>
+                        Порядок роста O( log n) означает, что время выполнения алгоритма растет логарифмически с увеличением размера входного массива. (Прим. пер.: в анализе алгоритмов по умолчанию используется логарифм по основанию 2). Большинство алгоритмов, работающих по принципу «деления пополам», имеют логарифмическую сложность. Метод Contains бинарного дерева поиска (binary search tree) также имеет порядок роста O(log n).
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="from ..." id="inputOrderLogarithmic" th:value="10">
+                        </div>
+                    </td>
+                    <td>
+                        <button class="btn btn-secondary" type="button" onclick="orderLogarithmic()">
+                            run
+                        </button>
+                    </td>
+                    <td id="resultOrderLogarithmic"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
