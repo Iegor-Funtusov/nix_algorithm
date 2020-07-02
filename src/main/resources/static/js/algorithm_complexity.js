@@ -42,6 +42,9 @@ function runAlgorithmComplexity() {
             case 'modalOrderLogarithmic' : {
                 submitRequest('orderLogarithmic');
             } break;
+            case 'modalOrderLinearLogarithmic' : {
+                submitRequest('orderLinearLogarithmic');
+            } break;
         }
     }
 }

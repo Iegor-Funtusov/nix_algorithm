@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import ua.com.alevel.nix.algorithm.data.DataContainer;
 import ua.com.alevel.nix.algorithm.service.AlgorithmComplexityService;
 
+import java.util.List;
+
 /**
  * @author Iehor Funtusov, created 01/07/2020 - 1:58 AM
  */
@@ -45,5 +47,10 @@ public class AlgorithmComplexityController {
         int capacity = Integer.parseInt(inputString[0]);
         int find = Integer.parseInt(inputString[1]);
         return ResponseEntity.ok(algorithmComplexityService.orderLogarithmic(capacity, find));
+    }
+
+    @PostMapping("/orderLinearLogarithmic")
+    public ResponseEntity<DataContainer<List<Integer>>> orderLinearLogarithmic(@RequestBody String input) {
+        return ResponseEntity.ok(algorithmComplexityService.orderLinearLogarithmic(input));
     }
 }
