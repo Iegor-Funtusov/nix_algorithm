@@ -7,7 +7,6 @@ import ua.com.alevel.nix.algorithm.service.AlgorithmComplexityService;
 import ua.com.alevel.nix.algorithm.util.AlgorithmUtil;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -47,6 +46,7 @@ public class AlgorithmComplexityServiceImpl implements AlgorithmComplexityServic
         long start = System.currentTimeMillis();
         int res = AlgorithmUtil.binarySearch(arr, find, arr[0], arr.length - 1);
         long end = System.currentTimeMillis() - start;
+        System.out.println("end = " + end);
         return new DataContainer<>(res, end);
     }
 
@@ -57,6 +57,9 @@ public class AlgorithmComplexityServiceImpl implements AlgorithmComplexityServic
         int[] res = AlgorithmUtil.sortMergeArray(arr);
         long end = System.currentTimeMillis() - start;
         List<Integer> integerList =  Arrays.stream(res).boxed().collect(Collectors.toList());
+
+        integerList.forEach(System.out::print);
+
         return new DataContainer<>(integerList, end);
     }
 }
